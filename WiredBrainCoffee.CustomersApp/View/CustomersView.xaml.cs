@@ -10,22 +10,26 @@ namespace WiredBrainCoffee.CustomersApp.View
     /// </summary>
     public partial class CustomersView : UserControl
     {
-        private CustomerViewModel _viewModel;
-
+        #region Old Code
+        //private CustomerViewModel _viewModel;
+        #endregion
         public CustomersView()
         {
             InitializeComponent();
-            //Use the ViewModel for the Customer View
-            _viewModel = new CustomerViewModel(new CustomerDataProvider());
-            DataContext = _viewModel;
-            //Create Loaded event for Customer View
-            Loaded += CustomersView_Loaded;
+            #region Old Code
+            ////Use the ViewModel for the Customer View
+            //_viewModel = new CustomerViewModel(new CustomerDataProvider());
+            //DataContext = _viewModel;
+            ////Create Loaded event for Customer View
+            //Loaded += CustomersView_Loaded;
+            #endregion
         }
+        #region Old Code
+        //private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    await _viewModel.LoadAsync();//Now the _viewModel is assigned to the DataContext and this line of code is load data
+        //}
 
-        private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
-        {
-            await _viewModel.LoadAsync();//Now the _viewModel is assigned to the DataContext and this line of code is load data
-        }
 
         //private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
         //{
@@ -44,5 +48,6 @@ namespace WiredBrainCoffee.CustomersApp.View
         //{
         //    _viewModel.Add();
         //}
+        #endregion
     }
 }

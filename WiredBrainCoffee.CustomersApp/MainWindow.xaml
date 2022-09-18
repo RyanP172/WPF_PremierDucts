@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:WiredBrainCoffee.CustomersApp.Controls" 
         xmlns:view="clr-namespace:WiredBrainCoffee.CustomersApp.View"
+        xmlns:viewModel="clr-namespace:WiredBrainCoffee.CustomersApp.ViewModel"
         mc:Ignorable="d"
         Title="Customers App"  d:DesignHeight="600"   Height="500" Width="1107" FontSize="20">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
+            <view:CustomersView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid >
 
         <Grid.RowDefinitions>
@@ -25,10 +31,12 @@
         </Menu>
 
 
-        <controls:HeaderControl Grid.Row="1"/> 
-        
-        <view:CustomersView Grid.Row="2"/>   
-        
+        <controls:HeaderControl Grid.Row="1"/>
+
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}"/>
+
+
+
         <StatusBar Grid.Row="3">
             <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
         </StatusBar>
