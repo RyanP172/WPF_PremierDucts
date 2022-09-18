@@ -40,9 +40,12 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 _selectedCustomer = value;
                 //RaisePropertyChanged("SelectedCustomer");//A nameof expression produces the name of a variable, type, or member as the string constant
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.RaiseCanExecuteChanged();
             }
         }
+
+        public bool IsCustomerSelected => SelectedCustomer != null;
 
         public NavigationSide NavigationDirection
         {
