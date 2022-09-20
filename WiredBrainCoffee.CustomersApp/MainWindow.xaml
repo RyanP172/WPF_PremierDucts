@@ -12,6 +12,9 @@
         <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
             <view:CustomersView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
+            <view:ProductsView/>
+        </DataTemplate>
     </Window.Resources>
     <Grid >
 
@@ -22,11 +25,15 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-       
+
         <Menu  FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customers"/>
-                <MenuItem Header="_Products"/>
+                <MenuItem Header="_Customers"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding CustomerViewModel}"/>
+                <MenuItem Header="_Products"
+                          Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding ProductsViewModel}"/>
             </MenuItem>
         </Menu>
 
@@ -40,6 +47,6 @@
         <StatusBar Grid.Row="3">
             <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
         </StatusBar>
-        
+
     </Grid>
 </Window>
